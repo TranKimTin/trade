@@ -15,7 +15,7 @@ export class BotFather {
         this.telegram = new Telegram(undefined, undefined, true);
         this.hostWebServer = process.env.HOST_WEB_SERVER || 'http://localhost';
 
-        const brokers = ['binance_future', 'binance', 'bybit', 'bybit_future', /*'okx'*/];
+        const brokers = ['binance_future', 'binance', 'bybit', 'bybit_future', 'okx'];
         this.workerList = [];
         for (const broker of brokers) {
             const worker = new StaticPool({ size: 1, task: './worker_socket.js' });
